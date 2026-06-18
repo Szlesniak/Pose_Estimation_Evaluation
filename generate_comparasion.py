@@ -12,18 +12,15 @@ for path in [path_orig, path_rtm, path_vit, path_yolo]:
         print(f"file not found at: {path}")
         exit()
 
-# 2. Open all four videos
 cap_orig = cv2.VideoCapture(path_orig)
 cap_rtm = cv2.VideoCapture(path_rtm)
 cap_vit = cv2.VideoCapture(path_vit)
 cap_yolo = cv2.VideoCapture(path_yolo)
 
-# Get video properties from original
 fps = int(cap_orig.get(cv2.CAP_PROP_FPS))
 width = int(cap_orig.get(cv2.CAP_PROP_FRAME_WIDTH))
 height = int(cap_orig.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
-# 3. Setup the Video Writer
 fourcc = cv2.VideoWriter_fourcc(*'mp4v')
 out = cv2.VideoWriter('outputs/demo_results/COLOR_OVERLAY.mp4', 
                       fourcc, fps, (width, height))
